@@ -790,6 +790,7 @@ static int vigor_usb_product_id_rndis[] = {
 };
 #endif /* CONFIG_MACH_VIGOR */
 
+#if 0
 #ifdef CONFIG_MACH_VIVOW
 static int vivow_usb_product_id_match_array[] = {
 	0x0c93, 0x0e10, /* mtp */
@@ -809,6 +810,7 @@ static int vivow_usb_product_id_rndis[] = {
 	0x0e14, 0x0e15,
 };
 #endif /* CONFIG_MACH_VIVOW */
+#endif /* 0 */
 
 #ifdef CONFIG_MACH_MECHA
 static int mecha_usb_product_id_match_array[] = {
