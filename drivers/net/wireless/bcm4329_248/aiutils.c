@@ -523,12 +523,12 @@ ai_corereg(si_t *sih, uint coreidx, uint regoff, uint mask, uint val)
 			 */
 			fast = TRUE;
 			if (SI_FAST(sii))
-				r = (uint32 *)((char *)sii->curmap
+				r = (uint32 *)((char *)sii->curmap +
 				               PCI_16KB0_PCIREGS_OFFSET + regoff);
 			else
-				r = (uint32 *)((char *)sii->curmap
+				r = (uint32 *)((char *)sii->curmap +
 				               ((regoff >= SBCONFIGOFF) ?
-				                PCI_BAR0_PCISBR_OFFSET : PCI_BAR0_PCIREGS_OFFSET)
+				                PCI_BAR0_PCISBR_OFFSET : PCI_BAR0_PCIREGS_OFFSET) +
 				               regoff);
 		}
 	}

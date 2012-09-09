@@ -3552,7 +3552,7 @@ wl_iw_ch_to_chanspec(int ch, wl_join_params_t *join_params, int *join_params_siz
 		chanspec |= WL_CHANSPEC_CTL_SB_NONE;
 
 
-		*join_params_size += WL_ASSOC_PARAMS_FIXED_SIZE
+		*join_params_size += WL_ASSOC_PARAMS_FIXED_SIZE +
 			join_params->params.chanspec_num * sizeof(chanspec_t);
 
 
@@ -5245,7 +5245,7 @@ wl_iw_iscan_get_scan(
 		}
 
 
-		if (event + ETHER_ADDR_LEN + bi->SSID_len + IW_EV_UINT_LEN + IW_EV_FREQ_LEN
+		if (event + ETHER_ADDR_LEN + bi->SSID_len + IW_EV_UINT_LEN + IW_EV_FREQ_LEN +
 			IW_EV_QUAL_LEN >= end) {
 			WL_ERROR(("%s: buffer to big!\n", __FUNCTION__));
 			return -E2BIG;
@@ -10484,7 +10484,7 @@ int wl_iw_attach(struct net_device *dev, void * dhdp)
 
 
 #ifdef CSCAN
-	params_size = (WL_SCAN_PARAMS_FIXED_SIZE + OFFSETOF(wl_iscan_params_t, params))
+	params_size = (WL_SCAN_PARAMS_FIXED_SIZE + OFFSETOF(wl_iscan_params_t, params)) +
 	    (WL_NUMCHANNELS * sizeof(uint16)) + WL_SCAN_PARAMS_SSID_MAX * sizeof(wlc_ssid_t);
 #else
 	params_size = (WL_SCAN_PARAMS_FIXED_SIZE + OFFSETOF(wl_iscan_params_t, params));
